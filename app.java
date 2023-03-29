@@ -1,4 +1,4 @@
-import admin.admin;
+import admin.*;
 import doctor.doctor;
 import patient.patient;
 import login.login;
@@ -19,17 +19,13 @@ class startApp {
         patient pat = new patient();
         pat.patientStart();
     }
-   public void loginC(){
-       
-       
-    }
 
     void start() {
         adminC();
         doctorC();
         patientC();
-        // ulogin login= new ulogin();
         login login= new login();
+        admin admin=new admin();
         System.out.println("Please select any option . . .");
         int option = 0;
         Scanner scan = new Scanner(System.in);
@@ -49,8 +45,8 @@ class startApp {
         }
        
         if (option == 1) {
-            String sec = "Admin";
-            login.userLogin(sec);
+            admin.adminOption();
+
         } else if (option == 2) {
             String sec = "Doctor";
             login.userLogin(sec);
