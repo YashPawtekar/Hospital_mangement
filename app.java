@@ -41,7 +41,7 @@ class startApp {
             System.out.println("Please invaild option");
             System.out.println(" ");
         } finally {
-            scan.close();
+            // scan.close();
         }
        
         if (option == 1) {
