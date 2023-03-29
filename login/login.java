@@ -8,11 +8,20 @@ interface log {
 }
 
 public class login implements log {
-    public void loginData(String name, String password) {
-    //   System.out.println(name);
-    //   System.out.println(password);
+    public void loginData(String Email, String password) {
+    
     adminData adminData= new adminData();
-    System.out.println(Arrays.toString(adminData.admin[1]));
+    for(int i=0; i<adminData.admin.length; i++){
+      for(int j=0;j<1; j++){
+        // System.out.print(adminData.admin[i][2]);
+        String emailU = adminData.admin[i][2];
+        if(Email == emailU){
+          // System.out.print(adminData.admin[i][j]);
+          System.out.println("Yes");
+        }
+      }
+      System.out.println();
+    }
    
     }
     public void userLogin(String section) {
