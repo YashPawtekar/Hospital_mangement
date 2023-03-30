@@ -1,7 +1,7 @@
 import admin.*;
 import doctor.doctor;
 import patient.patient;
-import login.login;
+import medical.medical;
 import java.util.*;
 
 class startApp {
@@ -19,13 +19,20 @@ class startApp {
         patient pat = new patient();
         pat.patientStart();
     }
+    public void medicalC() {
+        medical med = new medical();
+        med.medicalStart();
+    }
 
     void start() {
         adminC();
         doctorC();
         patientC();
-        login login= new login();
+        medicalC();
+        System.out.println(" ");
         admin admin=new admin();
+        doctor doctor = new doctor();
+        patient patient = new patient();
         System.out.println("Please select any option . . .");
         int option = 0;
         Scanner scan = new Scanner(System.in);
@@ -45,14 +52,25 @@ class startApp {
         }
        
         if (option == 1) {
+            System.out.println("");
+            System.out.println("Welcome to Admin Panel");
+            System.out.println("*************************************"); 
             admin.adminOption();
 
         } else if (option == 2) {
-            String sec = "Doctor";
-            login.userLogin(sec);
+            System.out.println("");
+            System.out.println("Welcome to Doctor Panel");
+            System.out.println("*************************************"); 
+            doctor.doctorOption();
         } else if (option == 3) {
-            String sec = "Patient";
-            login.userLogin(sec);
+            System.out.println("");
+            System.out.println("Welcome to Patient Panel");
+            System.out.println("*************************************"); 
+            patient.patientOption();
+        }else if (option == 4) {
+            System.out.println("");
+            System.out.println("Welcome to Medical Record Management");
+            System.out.println("*************************************"); 
         }
     }
 
