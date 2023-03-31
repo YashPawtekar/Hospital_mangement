@@ -2,6 +2,8 @@ package registration;
 import java.util.*;
 import admin.admin;
 import doctor.doctor;
+import patient.patient;
+import appointment.appointmentMangement;
 interface reg{
     public void registra(String section);
 }
@@ -9,6 +11,8 @@ interface reg{
 public class registration implements reg {
     admin admin = new admin();
     doctor doctor = new doctor();
+    patient patient = new patient();
+    appointmentMangement appointmentMangement = new appointmentMangement();
    
     public void registra(String section){
         
@@ -145,8 +149,50 @@ public class registration implements reg {
           System.out.println("Registration successful . . . !");
           System.out.println("*************************************");
           System.out.println("");
-          doctor.doctorOptionMore();
+          patient.patientOptionMore();
         }
+        else if(section == "Appointment"){
+          String[][] users = new String[10][5];
+            int userCount = 0;
+    
+            String id= "UID"+ userCount; 
+    
+            System.out.println("Please enter full name");
+            Scanner userfullName = new Scanner(System.in);
+            String userfull = userfullName.next();
+    
+            System.out.println("Please enter email");
+            Scanner userEmail = new Scanner(System.in);
+            String Emailuser = userEmail.next();
+    
+            System.out.println("Please enter phone number");
+            Scanner userPhoneNumber = new Scanner(System.in);
+            String PhoneNumber = userPhoneNumber.next();
+    
+            System.out.println("Please enter password");
+            Scanner userPassword = new Scanner(System.in);
+            String Password = userPassword.next();
+            
+            users[userCount][0] = id;
+            users[userCount][1] = userfull;
+            users[userCount][2] = Emailuser;
+            users[userCount][3] = PhoneNumber;
+            users[userCount][4] = Password;
+            // System.out.println(Arrays.toString(users[userCount]));
+            System.out.println("");
+            System.out.println("*************************************");
+            System.out.println("Your personal information . . .");
+            System.out.println(Arrays.toString(users[userCount]));
+            System.out.println("*");
+            userCount++;
+          System.out.println("");
+          System.out.println("*************************************");
+          System.out.println("Registration successful . . . !");
+          System.out.println("");
+          System.out.println("*************************************");
+          System.out.println("");
+          appointmentMangement.appointStart();
+      }
         
     }
 }

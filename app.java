@@ -2,6 +2,7 @@ import admin.*;
 import doctor.doctor;
 import patient.patient;
 import medical.medical;
+import appointment.*;
 import java.util.*;
 
 class startApp {
@@ -23,16 +24,28 @@ class startApp {
         medical med = new medical();
         med.medicalStart();
     }
+    public void appointmentC() {
+        appointmentMangement appointM = new appointmentMangement();
+        appointM.appointMangementStart();
+    }
 
     void start() {
+        System.out.println("*************************************"); 
+        System.out.println("");
+        System.out.println(" * * * Welcome to My Hospital * * * ");
+        System.out.println("");
+        System.out.println("*************************************"); 
         adminC();
         doctorC();
         patientC();
         medicalC();
+        appointmentC(); 
+        System.out.println("6. Exit");
         System.out.println(" ");
         admin admin=new admin();
         doctor doctor = new doctor();
         patient patient = new patient();
+        appointmentMangement appointmentMangement = new appointmentMangement();
         System.out.println("Please select any option . . .");
         int option = 0;
         Scanner scan = new Scanner(System.in);
@@ -70,6 +83,15 @@ class startApp {
         }else if (option == 4) {
             System.out.println("");
             System.out.println("Welcome to Medical Record Management");
+            System.out.println("*************************************"); 
+        }else if (option == 5) {
+            System.out.println("");
+            System.out.println("Welcome to Appointment Management");
+            System.out.println("*************************************");
+            appointmentMangement.appointMangementOption();
+        }else if (option == 6) {
+            System.out.println("");
+            System.out.println("close");
             System.out.println("*************************************"); 
         }
     }

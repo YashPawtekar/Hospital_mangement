@@ -2,6 +2,7 @@ package admin;
 import java.util.*;
 import login.*;
 import registration.registration;
+import appointment.*;
 
 interface ad {
   public void adminStart();
@@ -31,7 +32,7 @@ public class admin implements ad {
     try {
       optionAdmin = scan3.nextInt();
     } catch (Exception e) {
-      System.out.println("Some error " + e.getMessage());
+      System.out.println("Please enter number" + e.getMessage());
     } 
 
     if (optionAdmin == 1) {
@@ -47,11 +48,26 @@ public class admin implements ad {
     System.out.println(" . . . Welcome to Admin Management. . . ");
     System.out.println(" ");
     System.out.println("1. Appointment Management");
-    System.out.println("2. Edit doctor");
-    System.out.println("3. Add doctor");
-    System.out.println("4. Generate bill");
-    System.out.println("5. Refund payment");
+    System.out.println("2. Generate Bill");
+    System.out.println("3. New Doctor Add");
+    System.out.println("4. Edit Doctor");
+    System.out.println("5. Refund Payment");
     System.out.println("");
-    // System.out.println("5. Personal information");
+    System.out.println("Please select any one option");
+    Scanner scan5 = new Scanner(System.in);
+    int option5=0;
+    try{
+      option5= scan5.nextInt();
+    }catch(Exception e){
+      System.out.println("Please enter number");
+    }
+    
+    if(option5 == 1){
+      appointmentMangement appointmentMangement = new appointmentMangement();
+      appointmentMangement.appointStart();
+    }else{
+      System.out.println("Thank you for your input");
+    }
+   
   }
 }

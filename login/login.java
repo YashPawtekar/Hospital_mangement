@@ -1,6 +1,7 @@
 package login;
 import java.util.*;
 import admin.admin;
+import appointment.*;
 import doctor.doctor;
 import patient.patient;
 
@@ -96,6 +97,34 @@ public class login implements log {
        System.out.println("*************************************");
        System.out.println("");
        patient.patientOptionMore();
+     }
+    }else if(sectionType == "Appointment"){
+     appoinymentMangementData appoinymentMangementData = new appoinymentMangementData(); 
+     appointmentMangement appointmentMangement = new appointmentMangement(); 
+
+      boolean foundUser = false;
+     for (int i = 0; i < appoinymentMangementData.appointdata.length; i++) {
+       if (Email.equals(appoinymentMangementData.appointdata[i][2]) && password.equals(appoinymentMangementData.appointdata[i][4])) {
+         foundUser = true;
+         break;
+       }
+     }
+ 
+     if (foundUser) {
+       System.out.println("");
+       System.out.println("*************************************");
+       System.out.println("Login successful . . . !");
+       System.out.println("*************************************");
+       System.out.println("");
+       appointmentMangement.appointStart();
+       System.out.println("");
+     } else {
+       System.out.println("");
+       System.out.println("*************************************");
+       System.out.println("Invalid username or password.");
+       System.out.println("*************************************");
+       System.out.println("");
+       appointmentMangement.appointStart();
      }
     }
     
