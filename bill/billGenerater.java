@@ -1,82 +1,78 @@
-package medical;
+package bill;
+import java.util.*;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.*;
-import registration.*;
-import login.*;
+import registration.registration;
+import login.login;
 
-interface med {
+interface billGe{
     public void add();
-
     public void update();
-
     public void comm();
-
     public void read();
-
     public void delete();
-
     public void save();
-
-    public void medicalStart();
-
-    public void medicalOption();
-
-    public void medicalOptionMore();
+    public void billGenetaterStart();
+    public void billGenetateroption();
+    public void billStart();
 }
 
-public class medical implements med {
+public class billGenerater implements billGe{
     login login = new login();
-    String[][] medicalRecordDetails = new String[10][5];
-    mediacalR mediacalR = new mediacalR();
+    String[][] billDetails = new String[10][6];
+    int billGCount = 0;
+    billG billG = new billG();
+    public void add(){
 
-    int medicalRecordCount = 0;
+        String billGId = "BILLO" + billGCount;
+        billG.setBillId(billGId);
 
-    public void add() {
-
-        String mediceId = "MEDI" + medicalRecordCount;
-        mediacalR.setMedicalRecId(mediceId);
-
-        System.out.println("Please enter medicine name");
+        System.out.println("Please enter patient name");
         Scanner scan6 = new Scanner(System.in);
-        String medicineN = scan6.next();
-        mediacalR.setMediceName(medicineN);
+        String patient = scan6.next();
+        billG.setPatientName(patient);
 
-        System.out.println("Please enter how many box");
+        System.out.println("Please enter doctor name");
         Scanner scan7 = new Scanner(System.in);
-        String boxN = scan7.next();
-        mediacalR.setMediceBox(boxN);
+        String doctorN = scan7.next();
+        String doctor = "Dr." + doctorN;
+        billG.setDoctorName(doctor);
 
-        System.out.println("Please enter per pack price");
+        System.out.println("Please enter fees");
         Scanner scan8 = new Scanner(System.in);
-        String perPack = scan8.next();
-        mediacalR.setMedicePerPack(perPack);
+        String fees = scan8.next();
+        billG.setFeesAmount(fees);
 
         System.out.println("Please enter date");
         Scanner scan9 = new Scanner(System.in);
         String date = scan9.next();
-        mediacalR.setMediceUpdateDate(date);
+        billG.setDateOnBill(date);
 
-        medicalRecordDetails[medicalRecordCount][0] = mediacalR.getMedicalRecId();
-        medicalRecordDetails[medicalRecordCount][1] = mediacalR.getMediceName();
-        medicalRecordDetails[medicalRecordCount][2] = mediacalR.getMediceBox();
-        medicalRecordDetails[medicalRecordCount][3] = mediacalR.getMedicePerPack();
-        medicalRecordDetails[medicalRecordCount][4] = mediacalR.getMediceUpdateDate();
+        System.out.println("Please enter time");
+        Scanner scan10 = new Scanner(System.in);
+        String time = scan10.next();
+        billG.setTimeOnBill(time);
+
+        billDetails[billGCount][0] = billG.getBillId();
+        billDetails[billGCount][1] = billG.getPatientName();
+        billDetails[billGCount][2] = billG.getDoctorName();
+        billDetails[billGCount][3] = billG.getFeesAmount();
+        billDetails[billGCount][4] = billG.getDateOnBill();
+        billDetails[billGCount][5] = billG.getTimeOnBill();
         comm();
-
     }
-
-    public void update() {
+    public void update(){
         System.out.println("");
-        System.out.println(" . . . Medical Record Update  . . . ");
+        System.out.println(" . . . Bill Update  . . . ");
         System.out.println(" ");
-        System.out.println(Arrays.toString(medicalRecordDetails[medicalRecordCount]));
+        System.out.println(Arrays.toString(billDetails[billGCount]));
         System.out.println(" ");
         System.out.println("");
-        System.out.println("1. Medicine Name");
-        System.out.println("2. Nmuber of box");
-        System.out.println("3. Per Pack");
+        System.out.println("1. Patient");
+        System.out.println("2. Doctor");
+        System.out.println("3. Fees");
         System.out.println("4. Date");
+        System.out.println("5. Time");
         System.out.println("");
         System.out.println("Please select any one option");
         System.out.println("");
@@ -89,11 +85,11 @@ public class medical implements med {
         }
 
         if (option12 == 1) {
-            System.out.println("Please enter medicine name");
+            System.out.println("Please enter patient name");
             Scanner scan6 = new Scanner(System.in);
-            String medicineN = scan6.next();
-            mediacalR.setMediceName(medicineN);
-            medicalRecordDetails[medicalRecordCount][1] = mediacalR.getMediceName();
+            String patient = scan6.next();
+            billG.setPatientName(patient);
+            billDetails[billGCount][1] = billG.getPatientName();
             System.out.println("*************************************");
             System.out.println("Update Successfully. . . !");
             System.out.println("*************************************");
@@ -101,11 +97,12 @@ public class medical implements med {
             comm();
 
         } else if (option12 == 2) {
-            System.out.println("Please enter how many box");
+            System.out.println("Please enter doctor name");
             Scanner scan7 = new Scanner(System.in);
-            String boxN = scan7.next();
-            mediacalR.setMediceBox(boxN);
-            medicalRecordDetails[medicalRecordCount][2] = mediacalR.getMediceBox();
+            String doctorN = scan7.next();
+            String doctor = "Dr." + doctorN;
+            billG.setDoctorName(doctor);
+            billDetails[billGCount][2] = billG.getDoctorName();
             System.out.println("*************************************");
             System.out.println("Update Successfully. . . !");
             System.out.println("*************************************");
@@ -113,12 +110,11 @@ public class medical implements med {
             comm();
 
         } else if (option12 == 3) {
-
-            System.out.println("Please enter per pack price");
-            Scanner scan8 = new Scanner(System.in);
-            String perPack = scan8.next();
-            mediacalR.setMedicePerPack(perPack);
-            medicalRecordDetails[medicalRecordCount][3] = mediacalR.getMedicePerPack();
+            System.out.println("Please enter fees");
+        Scanner scan8 = new Scanner(System.in);
+        String fees = scan8.next();
+        billG.setFeesAmount(fees);
+        billDetails[billGCount][3] = billG.getFeesAmount();
             System.out.println("*************************************");
             System.out.println("Update Successfully. . . !");
             System.out.println("*************************************");
@@ -127,31 +123,40 @@ public class medical implements med {
 
         } else if (option12 == 4) {
             System.out.println("Please enter date");
-            Scanner scan9 = new Scanner(System.in);
-            String date = scan9.next();
-            mediacalR.setMediceUpdateDate(date);
-            medicalRecordDetails[medicalRecordCount][4] = mediacalR.getMediceUpdateDate();
+        Scanner scan9 = new Scanner(System.in);
+        String date = scan9.next();
+        billG.setDateOnBill(date);
+        billDetails[billGCount][4] = billG.getDateOnBill();
             System.out.println("*************************************");
             System.out.println("Update Successfully. . . !");
             System.out.println("*************************************");
             System.out.println("");
             comm();
 
-        } else {
-            System.out.println("Please enter correct number");
+        } else if (option12 == 5) {
+            System.out.println("Please enter time");
+            Scanner scan10 = new Scanner(System.in);
+            String time = scan10.next();
+            billG.setTimeOnBill(time);
+            billDetails[billGCount][5] = billG.getTimeOnBill();
+            System.out.println("*************************************");
+            System.out.println("Update Successfully. . . !");
+            System.out.println("*************************************");
+            System.out.println("");
+            comm();
+
         }
     }
-
-    public void comm() {
+    public void comm(){
         System.out.println("");
-        System.out.println(" . . . Medical Record information  . . . ");
+        System.out.println(" . . . Bill information  . . . ");
         System.out.println(" ");
-        System.out.println(Arrays.toString(medicalRecordDetails[medicalRecordCount]));
+        System.out.println(Arrays.toString(billDetails[billGCount]));
         // appointCount++;
         System.out.println("");
-        System.out.println("1. Medical Record Update");
-        System.out.println("2. Medical Record delete");
-        System.out.println("3. Medical Record Save & exit");
+        System.out.println("1. Bill Update");
+        System.out.println("2. Bill delete");
+        System.out.println("3. Bill Save & exit");
         System.out.println("");
         System.out.println("Please select any one option");
         System.out.println("");
@@ -171,19 +176,19 @@ public class medical implements med {
         } else {
             System.out.println("Please enter correct number");
         }
-    }
 
-    public void read() {
-        medicalRecordData medicalRecordData = new medicalRecordData();
-        for (int i = 0; i < medicalRecordData.medicalRecordD.length; i++) {
+    }
+    public void read(){
+        billGenerateData billGenerateData = new billGenerateData();
+        for (int i = 0; i < billGenerateData.billData.length; i++) {
             for (int j = 0; j <= 0; j++) {
-                System.out.print(Arrays.toString(medicalRecordData.medicalRecordD[i]));
+                System.out.print(Arrays.toString(billGenerateData.billData[i]));
             }
             System.out.println();
         }
     }
+    public void delete(){
 
-    public void delete() {
         System.out.println("");
         System.out.println("Are you confirm to delete this information ?");
         System.out.println("");
@@ -206,22 +211,24 @@ public class medical implements med {
             System.out.println("Thanks for your conformation . . . !");
             System.out.println("*************************************");
             System.out.println("");
-            String medicalid = null;
-            mediacalR.setMedicalRecId(medicalid);
-            String medicinename = null;
-            mediacalR.setMediceName(medicinename);
-            String boxNm = null;
-            mediacalR.setMediceBox(boxNm);
-            String perpack = null;
-            mediacalR.setMedicePerPack(perpack);
+            String apponitId = null;
+            billG.setBillId(apponitId);
+            String patient = null;
+            billG.setPatientName(patient);
+            String doctor = null;
+            billG.setDoctorName(doctor);
+            String fees = null;
+            billG.setFeesAmount(fees);
             String date = null;
-            mediacalR.setMediceUpdateDate(date);
+            billG.setDateOnBill(date);
+            String time = null;
+            billG.setTimeOnBill(time);
             System.out.println("");
             System.out.println("Your information delete permanently");
             System.out.println("");
             System.out.println("*************************************");
             System.out.println("");
-            System.out.println("1. Go To Medical Record Management");
+            System.out.println("1. Go To Appointment Management");
             System.out.println("2. Exit");
             System.out.println("");
             System.out.println("Please select any one option");
@@ -234,7 +241,7 @@ public class medical implements med {
                 System.out.println("Please enter number");
             }
             if(option15 == 1){
-                medicalOptionMore();
+                billGenetaterStart();
             }else if(option15 == 2){
                 System.out.println("");
                 System.out.println("*************************************");
@@ -243,8 +250,7 @@ public class medical implements med {
             }
 
         } else if (option13 == 2) {
-            System.out.println("");
-            System.out.println("Thanks . . . !");
+            System.out.println("Thanks for your conformation . . . !");
             System.out.println("*************************************");
             System.out.println("");
             comm();
@@ -252,65 +258,55 @@ public class medical implements med {
             System.out.println("Please enter correct number");
         }
     }
-
-    public void save() {
+    public void save(){
         try {
-            String FileName = medicalRecordDetails[medicalRecordCount][0] + "_" + medicalRecordDetails[medicalRecordCount][1] + "_" + medicalRecordDetails[medicalRecordCount][2];
-            FileWriter writer = new FileWriter("medical/" +FileName);
+            String FileName = billDetails[billGCount][0] + "_" + billDetails[billGCount][1] + "_" + billDetails[billGCount][2];
+            FileWriter writer = new FileWriter("bill/" +FileName);
             writer.write(" [ ");
-            for (String appoi : medicalRecordDetails[medicalRecordCount]) {
-                writer.write(" ' " + appoi + " ' ");
+            for (String billsG : billDetails[billGCount]) {
+                writer.write(" ' " + billsG + " ' ");
             }
             writer.write(" ] ");
             writer.close();
             System.out.println(" ");
             System.out.println("New file created successfully.");
             System.out.println(" "); 
-            medicalRecordCount++;
+            billGCount++;
         } catch (IOException e) {
             System.out.println("An error occurred: " + e.getMessage());
         }
     }
-
-    public void medicalStart() {
-        System.out.println("4. Medical Record Management");
+    public void billStart(){
+        System.out.println("6. Bill Generater");    
     }
-
-    public void medicalOption() {
-
+    public void billGenetateroption(){
         System.out.println("");
         System.out.println("1. Registration");
         System.out.println("2. Login");
         System.out.println("");
         System.out.println("Please select any option . . .");
-
+    
         Scanner scan3 = new Scanner(System.in);
         int optionAdmin = 0;
         try {
-            optionAdmin = scan3.nextInt();
+          optionAdmin = scan3.nextInt();
         } catch (Exception e) {
-            System.out.println("Please enter number" + e.getMessage());
-        }
-
+          System.out.println("Please enter number" + e.getMessage());
+        } 
+    
         if (optionAdmin == 1) {
-            registration registrat = new registration();
-            registrat.registra("Medical");
+          registration registrat = new registration();
+          registrat.registra("Bill");
         } else if (optionAdmin == 2) {
-            login.userLogin("Medical");
-        } else {
-            System.out.println("");
-            System.out.println(" * * * Please enter correct number * * * ");
-            System.out.println("");
-            medicalOption();
+          login.userLogin("Bill");
         }
     }
-
-    public void medicalOptionMore() {
+    public void billGenetaterStart(){
         System.out.println(" ");
-        System.out.println(" . . . Welcome to Medical Record Management  . . . ");
+        System.out.println(" . . . Welcome to Bill Generater  . . . ");
         System.out.println(" ");
-        System.out.println("1. Create Medical Record");
-        System.out.println("2. Medical Record Read");
+        System.out.println("1. Create New bill");
+        System.out.println("2. bill history Check");
         System.out.println("");
         System.out.println("Please select any one option");
         Scanner scan6 = new Scanner(System.in);
@@ -323,18 +319,17 @@ public class medical implements med {
 
         if (option6 == 1) {
             System.out.println("");
-            System.out.println(" * * *Create New Medical Record * * *");
+            System.out.println(" * * *Create New Bill * * *");
             System.out.println("");
             add();
         } else if (option6 == 2) {
             System.out.println("");
-            System.out.println(" * * * Medical Record Details * * *");
+            System.out.println(" * * * Bill History Details * * *");
             System.out.println("");
             read();
             System.out.println("");
         } else {
             System.out.println("Please enter correct number");
-            medicalOptionMore();
         }
     }
 }

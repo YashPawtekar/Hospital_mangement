@@ -4,6 +4,8 @@ import admin.admin;
 import appointment.*;
 import doctor.doctor;
 import patient.patient;
+import medical.*;
+import bill.*;
 
 interface log {
   public void userLogin(String section);
@@ -68,7 +70,7 @@ public class login implements log {
         System.out.println("Invalid username or password.");
         System.out.println("*************************************");
         System.out.println("");
-        doctor.doctorOptionMore();
+        doctor.doctorOption();
       }
     }else if(sectionType == "Patient"){
       patientData patientData = new patientData();
@@ -96,7 +98,7 @@ public class login implements log {
        System.out.println("Invalid username or password.");
        System.out.println("*************************************");
        System.out.println("");
-       patient.patientOptionMore();
+       patient.patientOption();
      }
     }else if(sectionType == "Appointment"){
      appoinymentMangementData appoinymentMangementData = new appoinymentMangementData(); 
@@ -124,9 +126,65 @@ public class login implements log {
        System.out.println("Invalid username or password.");
        System.out.println("*************************************");
        System.out.println("");
-       appointmentMangement.appointStart();
+       appointmentMangement.appointMangementOption();
      }
-    }
+    }else if(sectionType == "Bill"){
+      billdata billdata = new billdata(); 
+      billGenerater billGenerater = new billGenerater(); 
+      
+       boolean foundUser = false;
+      for (int i = 0; i < billdata.billdata.length; i++) {
+        if (Email.equals(billdata.billdata[i][2]) && password.equals(billdata.billdata[i][4])) {
+          foundUser = true;
+          break;
+        }
+      }
+  
+      if (foundUser) {
+        System.out.println("");
+        System.out.println("*************************************");
+        System.out.println("Login successful . . . !");
+        System.out.println("*************************************");
+        System.out.println("");
+        billGenerater.billGenetaterStart();
+        System.out.println("");
+      } else {
+        System.out.println("");
+        System.out.println("*************************************");
+        System.out.println("Invalid username or password.");
+        System.out.println("*************************************");
+        System.out.println("");
+        billGenerater.billGenetateroption();
+      }
+     }else if(sectionType == "Medical"){
+       medicalData medicalData = new medicalData();
+       medical medical = new medical();
+      
+       boolean foundUser = false;
+      for (int i = 0; i < medicalData.medicalD.length; i++) {
+        if (Email.equals(medicalData.medicalD[i][2]) && password.equals(medicalData.medicalD[i][4])) {
+          foundUser = true;
+          break;
+        }
+      }
+  
+      if (foundUser) {
+        System.out.println("");
+        System.out.println("*************************************");
+        System.out.println("Login successful . . . !");
+        System.out.println("*************************************");
+        System.out.println("");
+        medical.medicalOptionMore();
+        System.out.println("");
+      } else {
+        System.out.println("");
+        System.out.println("*************************************");
+        System.out.println("Invalid username or password.");
+        System.out.println("*************************************");
+        System.out.println("");
+        medical.medicalOption();
+      }
+     }
     
 
 

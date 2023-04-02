@@ -1,25 +1,21 @@
-package appointment;
+package patient;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
 import registration.*;
 import login.*;
+import appointment.*;
 
 interface appointMange {
     public void add();
     public void update();
     public void comm();
-    public void read();
     public void delete();
     public void save();
-    public void appointMangementStart();
-    public void appointStart();
-    public void appointMangementOption(); 
 
 }
 
-public class appointmentMangement implements appointMange {
-    login login = new login();
+public class patientAppoint implements appointMange {
     String[][] appointDetails = new String[10][6];
 
     int appointCount = 0;
@@ -185,21 +181,11 @@ public class appointmentMangement implements appointMange {
             System.out.println("Please enter correct number");
         }
     }
-
-    public void read() {
-        appointmentData appointmentData = new appointmentData();
-        for (int i = 0; i < appointmentData.appointment.length; i++) {
-            for (int j = 0; j <= 0; j++) {
-                System.out.print(Arrays.toString(appointmentData.appointment[i]));
-            }
-            System.out.println();
-        }
-    }
     public void save(){
 
         try {
             String FileName = appointDetails[appointCount][0] + "_" + appointDetails[appointCount][1] + "_" + appointDetails[appointCount][2];
-            FileWriter writer = new FileWriter("appointFiles/" +FileName);
+            FileWriter writer = new FileWriter("patientAppoint/" +FileName);
             writer.write(" [ ");
             for (String appoi : appointDetails[appointCount]) {
                 writer.write(" ' " + appoi + " ' ");
@@ -255,7 +241,7 @@ public class appointmentMangement implements appointMange {
             System.out.println("");
             System.out.println("*************************************");
             System.out.println("");
-            System.out.println("1. Go To Appointment Management");
+            System.out.println("1. Go To Patient Management");
             System.out.println("2. Exit");
             System.out.println("");
             System.out.println("Please select any one option");
@@ -268,7 +254,8 @@ public class appointmentMangement implements appointMange {
                 System.out.println("Please enter number");
             }
             if(option15 == 1){
-                appointStart();
+            patient patient2 = new patient();
+            patient2.patientOptionMore(); 
             }else if(option15 == 2){
                 System.out.println("");
                 System.out.println("*************************************");
@@ -286,67 +273,7 @@ public class appointmentMangement implements appointMange {
             System.out.println("Please enter correct number");
         }
     }
-    public void appointMangementStart(){
-        System.out.println("5. Appointment Management");
-    }
-
-    public void appointMangementOption() {
-        System.out.println("");
-        System.out.println("1. Registration");
-        System.out.println("2. Login");
-        System.out.println("");
-        System.out.println("Please select any option . . .");
-    
-        Scanner scan3 = new Scanner(System.in);
-        int optionAdmin = 0;
-        try {
-          optionAdmin = scan3.nextInt();
-        } catch (Exception e) {
-          System.out.println("Please enter number" + e.getMessage());
-        } 
-    
-        if (optionAdmin == 1) {
-          registration registrat = new registration();
-          registrat.registra("Appointment");
-        } else if (optionAdmin == 2) {
-          login.userLogin("Appointment");
-        }else{
-            appointMangementOption();
-        }
-      }
 
 
-    public void appointStart() {
-        System.out.println(" ");
-        System.out.println(" . . . Welcome to Appointment Management  . . . ");
-        System.out.println(" ");
-        System.out.println("1. Create Appointment");
-        System.out.println("2. Appointment Read");
-        System.out.println("");
-        System.out.println("Please select any one option");
-        Scanner scan6 = new Scanner(System.in);
-        int option6 = 0;
-        try {
-            option6 = scan6.nextInt();
-        } catch (Exception e) {
-            System.out.println("Please enter number");
-        }
-
-        if (option6 == 1) {
-            System.out.println("");
-            System.out.println(" * * *Create New Appointment * * *");
-            System.out.println("");
-            add();
-        } else if (option6 == 2) {
-            System.out.println("");
-            System.out.println(" * * * Appointment Details * * *");
-            System.out.println("");
-            read();
-            System.out.println("");
-        } else {
-            System.out.println("Please enter correct number");
-            appointStart();
-        }
-    }
 
 }

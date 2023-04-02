@@ -4,6 +4,7 @@ import patient.patient;
 import medical.medical;
 import appointment.*;
 import java.util.*;
+import bill.*;
 
 class startApp {
    public  void adminC() {
@@ -24,6 +25,10 @@ class startApp {
         medical med = new medical();
         med.medicalStart();
     }
+    public void billC() {
+        billGenerater billg = new billGenerater();
+        billg.billStart();
+    }
     public void appointmentC() {
         appointmentMangement appointM = new appointmentMangement();
         appointM.appointMangementStart();
@@ -40,11 +45,14 @@ class startApp {
         patientC();
         medicalC();
         appointmentC(); 
-        System.out.println("6. Exit");
+        billC();
+        System.out.println("7. Exit");
         System.out.println(" ");
         admin admin=new admin();
         doctor doctor = new doctor();
         patient patient = new patient();
+        medical medical = new medical();
+        billGenerater billGenerater = new billGenerater();
         appointmentMangement appointmentMangement = new appointmentMangement();
         System.out.println("Please select any option . . .");
         int option = 0;
@@ -84,12 +92,18 @@ class startApp {
             System.out.println("");
             System.out.println("Welcome to Medical Record Management");
             System.out.println("*************************************"); 
+            medical.medicalOption();
         }else if (option == 5) {
             System.out.println("");
             System.out.println("Welcome to Appointment Management");
             System.out.println("*************************************");
             appointmentMangement.appointMangementOption();
         }else if (option == 6) {
+            System.out.println("");
+            System.out.println("Welcome to Bill Generater");
+            System.out.println("*************************************");
+            billGenerater.billGenetateroption();
+        }else if (option == 7) {
             System.out.println("");
             System.out.println("close");
             System.out.println("*************************************"); 
