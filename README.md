@@ -51,6 +51,6 @@ Core Java
 
 Run the app.java file located in the src directory
 
-# author name
+# Author name
 
 Yash Pawtekar 
