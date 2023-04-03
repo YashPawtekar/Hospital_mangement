@@ -10,14 +10,17 @@ public class paymentStart implements pay {
     payment payment = new payment();
     
     public void paymentStartOption() {
+        System.out.println("*************************************");
+        System.out.println(" ");
         System.out.println(" . . . Payment method  . . . ");
+        System.out.println(" ");
+        System.out.println("*************************************");
         System.out.println(" ");
         System.out.println("1. Cash");
         System.out.println("2. UPI");
         System.out.println("3. Credit Card");
         System.out.println("4. Debit Card");
         System.out.println("5. Exit");
-        System.out.println("");
         System.out.println("");
         System.out.println("Please select any one option");
         System.out.println("");
@@ -27,10 +30,14 @@ public class paymentStart implements pay {
             option12 = scan12.nextInt();
         } catch (Exception e) {
             System.out.println("Please enter number");
+            System.out.println("");
         }
         if (option12 == 1) {
+            System.out.println("*************************************");
             System.out.println("");
             System.out.println(" * * *Cash Payment * * *");
+            System.out.println("");
+            System.out.println("*************************************");
             System.out.println("");
             System.out.println("Please enter amount. . .");
             System.out.println("");
@@ -40,6 +47,7 @@ public class paymentStart implements pay {
                 option20 = scan20.next();
             } catch (Exception e) {
                 System.out.println("Please enter number");
+                System.out.println("");
             }
             payment.setCash(option20);
             System.out.println("");
@@ -51,8 +59,11 @@ public class paymentStart implements pay {
             System.out.println("Thank you for payment . . .");
             System.out.println("*************************************");
         }else if (option12 == 2){
+            System.out.println("*************************************");
             System.out.println("");
             System.out.println(" * * *UPI Payment * * *");
+            System.out.println("");
+            System.out.println("*************************************");
             System.out.println("");
             System.out.println("Please enter amount. . .");
             System.out.println("");
@@ -82,8 +93,11 @@ public class paymentStart implements pay {
             System.out.println("Thank you for payment . . .");
             System.out.println("*************************************");
         } else if (option12 == 3){
+            System.out.println("*************************************");
             System.out.println("");
             System.out.println(" * * *Credit Card Payment * * *");
+            System.out.println("");
+            System.out.println("*************************************");
             System.out.println("");
             System.out.println("Please enter amount. . .");
             System.out.println("");
@@ -134,8 +148,11 @@ public class paymentStart implements pay {
             System.out.println("Thank you for payment . . .");
             System.out.println("*************************************");
         }else if (option12 == 4){
+            System.out.println("*************************************");
             System.out.println("");
             System.out.println(" * * *Debit Card Payment * * *");
+            System.out.println("");
+            System.out.println("*************************************");
             System.out.println("");
             System.out.println("Please enter amount. . .");
             System.out.println("");
@@ -189,11 +206,14 @@ public class paymentStart implements pay {
         }
         else if (option12 == 5){
             System.out.println("");
+            System.out.println("*************************************");
             System.out.println("Thank you . . . !");
             System.out.println("*************************************");
             System.out.println("");
         }else {
             System.out.println("Please enter correct number");
+            System.out.println();
+            paymentStartOption();
         }
     }
 }

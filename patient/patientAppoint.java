@@ -63,9 +63,11 @@ public class patientAppoint implements appointMange {
     }
 
     public void comm() {
+          System.out.println("*************************************");
         System.out.println("");
         System.out.println(" . . . Appointment information  . . . ");
         System.out.println(" ");
+          System.out.println("*************************************");
         System.out.println(Arrays.toString(appointDetails[appointCount]));
         // appointCount++;
         System.out.println("");
@@ -81,6 +83,7 @@ public class patientAppoint implements appointMange {
             option11 = scan11.nextInt();
         } catch (Exception e) {
             System.out.println("Please enter number");
+            System.out.println("");
         }
         if (option11 == 1) {
             update();
@@ -90,13 +93,17 @@ public class patientAppoint implements appointMange {
             save();
         } else {
             System.out.println("Please enter correct number");
+            System.out.println("");
+            comm() ;
         }
     }
 
     public void update() {
+          System.out.println("*************************************");
         System.out.println("");
         System.out.println(" . . . Appointment Update  . . . ");
         System.out.println(" ");
+          System.out.println("*************************************");
         System.out.println(Arrays.toString(appointDetails[appointCount]));
         System.out.println(" ");
         System.out.println("");
@@ -105,6 +112,7 @@ public class patientAppoint implements appointMange {
         System.out.println("3. Fees");
         System.out.println("4. Date");
         System.out.println("5. Time");
+        System.out.println("6. Back To Previous Option");
         System.out.println("");
         System.out.println("Please select any one option");
         System.out.println("");
@@ -114,6 +122,7 @@ public class patientAppoint implements appointMange {
             option12 = scan12.nextInt();
         } catch (Exception e) {
             System.out.println("Please enter number");
+            System.out.println("");
         }
 
         if (option12 == 1) {
@@ -177,8 +186,14 @@ public class patientAppoint implements appointMange {
             System.out.println("");
             comm();
 
-        }else{
+        }
+        else if (option12 == 6) {
+            comm();
+        }
+        else{
             System.out.println("Please enter correct number");
+            System.out.println("");
+            update();
         }
     }
     public void save(){
@@ -202,9 +217,12 @@ public class patientAppoint implements appointMange {
 
     }
     public void delete() {
+          System.out.println("*************************************");
         System.out.println("");
         System.out.println("Are you confirm to delete this information ?");
         System.out.println("");
+          System.out.println("*************************************");
+          System.out.println("");
         System.out.println("1. Yes");
         System.out.println("2. No");
         System.out.println("");
@@ -217,9 +235,11 @@ public class patientAppoint implements appointMange {
             option13 = scan13.nextInt();
         } catch (Exception e) {
             System.out.println("Please enter number");
+            System.out.println("");
         }
 
         if (option13 == 1) {
+            System.out.println("*************************************");
             System.out.println("");
             System.out.println("Thanks for your conformation . . . !");
             System.out.println("*************************************");
@@ -252,6 +272,7 @@ public class patientAppoint implements appointMange {
                 option15 = scan15.nextInt();
             } catch (Exception e) {
                 System.out.println("Please enter number");
+                System.out.println("");
             }
             if(option15 == 1){
             patient patient2 = new patient();
@@ -261,9 +282,13 @@ public class patientAppoint implements appointMange {
                 System.out.println("*************************************");
                 System.out.println("Thank you . . . !");
                 System.out.println("*************************************");
+            }else{
+                System.out.println("Please enter correct number");
+                System.out.println("");
             }
 
         } else if (option13 == 2) {
+            System.out.println("*************************************");
             System.out.println("");
             System.out.println("Thanks . . . !");
             System.out.println("*************************************");
@@ -271,6 +296,8 @@ public class patientAppoint implements appointMange {
             comm();
         } else {
             System.out.println("Please enter correct number");
+            System.out.println("");
+            delete();
         }
     }
 

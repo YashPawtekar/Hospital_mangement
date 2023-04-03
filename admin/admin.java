@@ -27,15 +27,17 @@ public class admin implements ad {
     System.out.println("");
     System.out.println("1. Registration");
     System.out.println("2. Login");
+    System.out.println("3. Exit");
     System.out.println("");
     System.out.println("Please select any option . . .");
 
     Scanner scan3 = new Scanner(System.in);
     int optionAdmin = 0;
+    
     try {
       optionAdmin = scan3.nextInt();
     } catch (Exception e) {
-      System.out.println("Please enter number" + e.getMessage());
+      System.out.println("Please enter number - " + e.getMessage());
     }
 
     if (optionAdmin == 1) {
@@ -43,6 +45,11 @@ public class admin implements ad {
       registrat.registra("Admin");
     } else if (optionAdmin == 2) {
       login.userLogin("Admin");
+    }else if (optionAdmin == 3) {
+      System.out.println("");
+      System.out.println("*************************************");
+      System.out.println("Thank you . . . !");
+      System.out.println("*************************************");
     }else{
       System.out.println("");
       System.out.println(" * * * Please enter correct number * * * ");
@@ -52,7 +59,11 @@ public class admin implements ad {
   }
 
   public void adminOptionMore() {
+    System.out.println("*************************************");
+    System.out.println(" ");
     System.out.println(" . . . Welcome to Admin Management. . . ");
+    System.out.println(" ");
+    System.out.println("*************************************");
     System.out.println(" ");
     System.out.println("1. Appointment Management");
     System.out.println("2. Bill Generate");
@@ -67,6 +78,7 @@ public class admin implements ad {
       option5 = scan5.nextInt();
     } catch (Exception e) {
       System.out.println("Please enter number");
+      System.out.println("");
     }
 
     if (option5 == 1) {
@@ -77,9 +89,11 @@ public class admin implements ad {
       billGenerater billGenerater = new billGenerater();
       billGenerater.billGenetaterStart();
     } else if (option5 == 3){
+      System.out.println("*************************************");
       System.out.println(" ");
       System.out.println(" . . . Create New Doctor. . . ");
       System.out.println(" ");
+      System.out.println("*************************************");
       doctorAddc.doctoAddc();
     }  else if (option5 == 4) {
       System.out.println("*************************************");
@@ -97,8 +111,10 @@ public class admin implements ad {
       int option15 = 0;
       try {
           option15 = scan15.nextInt();
+          
       } catch (Exception e) {
           System.out.println("Please enter number");
+          System.out.println("");
       }
       if(option15 == 1){
         adminOptionMore();
@@ -107,13 +123,22 @@ public class admin implements ad {
           System.out.println("*************************************");
           System.out.println("Thank you . . . !");
           System.out.println("*************************************");
+      }else{
+        System.out.println("Please enter correct number");
+        System.out.println("");
       }
       
 
     }else if (option5 == 5) {
+      System.out.println("");
+      System.out.println("*************************************");
+          System.out.println("Thank you . . . !");
       System.out.println("******************************");
     } else {
-      System.out.println("Thank you for your input");
+      System.out.println("");
+      System.out.println(" * * * Please enter correct number * * * ");
+      System.out.println("");
+      adminOptionMore();
     }
 
   }

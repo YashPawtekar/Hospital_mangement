@@ -1,28 +1,38 @@
 package bill;
+
 import java.util.*;
 import java.io.FileWriter;
 import java.io.IOException;
 import registration.registration;
 import login.login;
 
-interface billGe{
+interface billGe {
     public void add();
+
     public void update();
+
     public void comm();
+
     public void read();
+
     public void delete();
+
     public void save();
+
     public void billGenetaterStart();
+
     public void billGenetateroption();
+
     public void billStart();
 }
 
-public class billGenerater implements billGe{
+public class billGenerater implements billGe {
     login login = new login();
     String[][] billDetails = new String[10][6];
     int billGCount = 0;
     billG billG = new billG();
-    public void add(){
+
+    public void add() {
 
         String billGId = "BILLO" + billGCount;
         billG.setBillId(billGId);
@@ -31,27 +41,32 @@ public class billGenerater implements billGe{
         Scanner scan6 = new Scanner(System.in);
         String patient = scan6.next();
         billG.setPatientName(patient);
+        System.out.println("");
 
         System.out.println("Please enter doctor name");
         Scanner scan7 = new Scanner(System.in);
         String doctorN = scan7.next();
         String doctor = "Dr." + doctorN;
         billG.setDoctorName(doctor);
+        System.out.println("");
 
         System.out.println("Please enter fees");
         Scanner scan8 = new Scanner(System.in);
         String fees = scan8.next();
         billG.setFeesAmount(fees);
+        System.out.println("");
 
         System.out.println("Please enter date");
         Scanner scan9 = new Scanner(System.in);
         String date = scan9.next();
         billG.setDateOnBill(date);
+        System.out.println("");
 
         System.out.println("Please enter time");
         Scanner scan10 = new Scanner(System.in);
         String time = scan10.next();
         billG.setTimeOnBill(time);
+        System.out.println("");
 
         billDetails[billGCount][0] = billG.getBillId();
         billDetails[billGCount][1] = billG.getPatientName();
@@ -61,9 +76,14 @@ public class billGenerater implements billGe{
         billDetails[billGCount][5] = billG.getTimeOnBill();
         comm();
     }
-    public void update(){
+
+    public void update() {
+        System.out.println("");
+        System.out.println("*************************************");
         System.out.println("");
         System.out.println(" . . . Bill Update  . . . ");
+        System.out.println(" ");
+        System.out.println("*************************************");
         System.out.println(" ");
         System.out.println(Arrays.toString(billDetails[billGCount]));
         System.out.println(" ");
@@ -73,6 +93,7 @@ public class billGenerater implements billGe{
         System.out.println("3. Fees");
         System.out.println("4. Date");
         System.out.println("5. Time");
+        System.out.println("6. Back To Previous Option");
         System.out.println("");
         System.out.println("Please select any one option");
         System.out.println("");
@@ -82,6 +103,7 @@ public class billGenerater implements billGe{
             option12 = scan12.nextInt();
         } catch (Exception e) {
             System.out.println("Please enter number");
+            System.out.println("");
         }
 
         if (option12 == 1) {
@@ -111,10 +133,10 @@ public class billGenerater implements billGe{
 
         } else if (option12 == 3) {
             System.out.println("Please enter fees");
-        Scanner scan8 = new Scanner(System.in);
-        String fees = scan8.next();
-        billG.setFeesAmount(fees);
-        billDetails[billGCount][3] = billG.getFeesAmount();
+            Scanner scan8 = new Scanner(System.in);
+            String fees = scan8.next();
+            billG.setFeesAmount(fees);
+            billDetails[billGCount][3] = billG.getFeesAmount();
             System.out.println("*************************************");
             System.out.println("Update Successfully. . . !");
             System.out.println("*************************************");
@@ -123,10 +145,10 @@ public class billGenerater implements billGe{
 
         } else if (option12 == 4) {
             System.out.println("Please enter date");
-        Scanner scan9 = new Scanner(System.in);
-        String date = scan9.next();
-        billG.setDateOnBill(date);
-        billDetails[billGCount][4] = billG.getDateOnBill();
+            Scanner scan9 = new Scanner(System.in);
+            String date = scan9.next();
+            billG.setDateOnBill(date);
+            billDetails[billGCount][4] = billG.getDateOnBill();
             System.out.println("*************************************");
             System.out.println("Update Successfully. . . !");
             System.out.println("*************************************");
@@ -145,11 +167,22 @@ public class billGenerater implements billGe{
             System.out.println("");
             comm();
 
+        }else if (option12 == 6) {
+            comm();
+        }else{
+            System.out.println("Please enter correct number");
+            System.out.println("");
+            update();
         }
     }
-    public void comm(){
+
+    public void comm() {
+        System.out.println("");
+         System.out.println("*************************************");
         System.out.println("");
         System.out.println(" . . . Bill information  . . . ");
+        System.out.println(" ");
+         System.out.println("*************************************");
         System.out.println(" ");
         System.out.println(Arrays.toString(billDetails[billGCount]));
         // appointCount++;
@@ -166,6 +199,7 @@ public class billGenerater implements billGe{
             option11 = scan11.nextInt();
         } catch (Exception e) {
             System.out.println("Please enter number");
+            System.out.println("");
         }
         if (option11 == 1) {
             update();
@@ -175,10 +209,13 @@ public class billGenerater implements billGe{
             save();
         } else {
             System.out.println("Please enter correct number");
+            System.out.println("");
+            comm();
         }
 
     }
-    public void read(){
+
+    public void read() {
         billGenerateData billGenerateData = new billGenerateData();
         for (int i = 0; i < billGenerateData.billData.length; i++) {
             for (int j = 0; j <= 0; j++) {
@@ -187,7 +224,8 @@ public class billGenerater implements billGe{
             System.out.println();
         }
     }
-    public void delete(){
+
+    public void delete() {
 
         System.out.println("");
         System.out.println("Are you confirm to delete this information ?");
@@ -204,6 +242,7 @@ public class billGenerater implements billGe{
             option13 = scan13.nextInt();
         } catch (Exception e) {
             System.out.println("Please enter number");
+            System.out.println("");
         }
 
         if (option13 == 1) {
@@ -228,7 +267,7 @@ public class billGenerater implements billGe{
             System.out.println("");
             System.out.println("*************************************");
             System.out.println("");
-            System.out.println("1. Go To Appointment Management");
+            System.out.println("1. Go To Bill Management");
             System.out.println("2. Exit");
             System.out.println("");
             System.out.println("Please select any one option");
@@ -239,14 +278,18 @@ public class billGenerater implements billGe{
                 option15 = scan15.nextInt();
             } catch (Exception e) {
                 System.out.println("Please enter number");
+                System.out.println("");
             }
-            if(option15 == 1){
+            if (option15 == 1) {
                 billGenetaterStart();
-            }else if(option15 == 2){
+            } else if (option15 == 2) {
                 System.out.println("");
                 System.out.println("*************************************");
                 System.out.println("Thank you . . . !");
                 System.out.println("*************************************");
+            }else{
+                System.out.println("Please enter correct number");
+                System.out.println("");
             }
 
         } else if (option13 == 2) {
@@ -256,12 +299,16 @@ public class billGenerater implements billGe{
             comm();
         } else {
             System.out.println("Please enter correct number");
+            System.out.println("");
+            delete() ;
         }
     }
-    public void save(){
+
+    public void save() {
         try {
-            String FileName = billDetails[billGCount][0] + "_" + billDetails[billGCount][1] + "_" + billDetails[billGCount][2];
-            FileWriter writer = new FileWriter("bill/" +FileName);
+            String FileName = billDetails[billGCount][0] + "_" + billDetails[billGCount][1] + "_"
+                    + billDetails[billGCount][2];
+            FileWriter writer = new FileWriter("bill/" + FileName);
             writer.write(" [ ");
             for (String billsG : billDetails[billGCount]) {
                 writer.write(" ' " + billsG + " ' ");
@@ -270,66 +317,111 @@ public class billGenerater implements billGe{
             writer.close();
             System.out.println(" ");
             System.out.println("New file created successfully.");
-            System.out.println(" "); 
+            System.out.println(" ");
             billGCount++;
         } catch (IOException e) {
             System.out.println("An error occurred: " + e.getMessage());
         }
     }
-    public void billStart(){
-        System.out.println("6. Bill Generater");    
+
+    public void billStart() {
+        System.out.println("6. Bill Generater");
     }
-    public void billGenetateroption(){
+
+    public void billGenetateroption() {
         System.out.println("");
         System.out.println("1. Registration");
         System.out.println("2. Login");
+        System.out.println("3. Exit");
         System.out.println("");
         System.out.println("Please select any option . . .");
-    
+        System.out.println("");
         Scanner scan3 = new Scanner(System.in);
         int optionAdmin = 0;
         try {
-          optionAdmin = scan3.nextInt();
+            optionAdmin = scan3.nextInt();
         } catch (Exception e) {
-          System.out.println("Please enter number" + e.getMessage());
-        } 
-    
+            System.out.println("");
+            System.out.println("Please enter number " + e.getMessage());
+            System.out.println("");
+        }
+
         if (optionAdmin == 1) {
-          registration registrat = new registration();
-          registrat.registra("Bill");
+            registration registrat = new registration();
+            registrat.registra("Bill");
         } else if (optionAdmin == 2) {
-          login.userLogin("Bill");
+            login.userLogin("Bill");
+        } else if (optionAdmin == 3) {
+            System.out.println("");
+            System.out.println("*************************************");
+            System.out.println("");
+            System.out.println("Thank you . . . !");
+            System.out.println("");
+            System.out.println("*************************************");
+        } else {
+            System.out.println("");
+            System.out.println("Please enter correct number");
+            System.out.println("");
+            billGenetateroption();
         }
     }
-    public void billGenetaterStart(){
+
+    public void billGenetaterStart() {
+        System.out.println("*************************************");
         System.out.println(" ");
-        System.out.println(" . . . Welcome to Bill Generater  . . . ");
+        System.out.println("* * * Welcome to Bill Generater  * * *");
         System.out.println(" ");
+        System.out.println("*************************************");
+        System.out.println("");
         System.out.println("1. Create New bill");
         System.out.println("2. bill history Check");
+        System.out.println("3. Exit");
         System.out.println("");
         System.out.println("Please select any one option");
+        System.out.println("");
         Scanner scan6 = new Scanner(System.in);
         int option6 = 0;
         try {
             option6 = scan6.nextInt();
         } catch (Exception e) {
+            System.out.println("");
             System.out.println("Please enter number");
+            System.out.println("");
         }
 
         if (option6 == 1) {
             System.out.println("");
+            System.out.println("*************************************");
+            System.out.println("");
             System.out.println(" * * *Create New Bill * * *");
+            System.out.println("");
+            System.out.println("*************************************");
             System.out.println("");
             add();
         } else if (option6 == 2) {
             System.out.println("");
+            System.out.println("*************************************");
+            System.out.println("");
             System.out.println(" * * * Bill History Details * * *");
             System.out.println("");
+            System.out.println("*************************************");
+            System.out.println(" ");
             read();
             System.out.println("");
-        } else {
+        }else if (option6 == 3) {
+            System.out.println("");
+            System.out.println("*************************************");
+            System.out.println("");
+            System.out.println("Thank you . . . !");
+            System.out.println("");
+            System.out.println("*************************************");
+           
+        } 
+        else {
+            System.out.println("");
             System.out.println("Please enter correct number");
+            System.out.println("");
+            billGenetaterStart();
         }
     }
 }

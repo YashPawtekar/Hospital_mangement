@@ -1,4 +1,5 @@
 package patient;
+
 import payment.*;
 import java.util.*;
 import login.login;
@@ -25,6 +26,7 @@ public class patient implements patie {
     System.out.println("");
     System.out.println("1. Registration");
     System.out.println("2. Login");
+    System.out.println("3. Exit");
     System.out.println("");
     System.out.println("Please select any option . . .");
 
@@ -33,7 +35,8 @@ public class patient implements patie {
     try {
       optionAdmin = scan3.nextInt();
     } catch (Exception e) {
-      System.out.println("Some error " + e.getMessage());
+      System.out.println("Please enter number" + e.getMessage());
+      System.out.println("");
     }
 
     if (optionAdmin == 1) {
@@ -41,6 +44,10 @@ public class patient implements patie {
       registrat.registra("Patient");
     } else if (optionAdmin == 2) {
       login.userLogin("Patient");
+    } else if (optionAdmin == 3) {
+      System.out.println("*************************************");
+      System.out.println("Thank you . . . !");
+      System.out.println("*************************************");
     } else {
       System.out.println("");
       System.out.println(" * * * Please enter correct number * * * ");
@@ -56,7 +63,7 @@ public class patient implements patie {
     System.out.println("2. Appointment status");
     System.out.println("3. Cancel appointment");
     System.out.println("4. Payment");
-    System.out.println("4. Exit");
+    System.out.println("5. Exit");
     System.out.println("");
     System.out.println("");
     System.out.println("Please select any one option");
@@ -67,11 +74,14 @@ public class patient implements patie {
       option12 = scan12.nextInt();
     } catch (Exception e) {
       System.out.println("Please enter number");
+      System.out.println("");
     }
     if (option12 == 1) {
+        System.out.println("*************************************");
       System.out.println("");
       System.out.println(" * * *Create New Appointment * * *");
       System.out.println("");
+        System.out.println("*************************************");
       patientAppoint patientAppoint = new patientAppoint();
       patientAppoint.add();
 
@@ -90,20 +100,23 @@ public class patient implements patie {
       Scanner scan15 = new Scanner(System.in);
       int option15 = 0;
       try {
-          option15 = scan15.nextInt();
+        option15 = scan15.nextInt();
       } catch (Exception e) {
-          System.out.println("Please enter number");
+        System.out.println("Please enter number");
+        System.out.println("");
       }
-      if(option15 == 1){
+      if (option15 == 1) {
         patientOptionMore();
-      }else if(option15 == 2){
-          System.out.println("");
-          System.out.println("*************************************");
-          System.out.println("Thank you . . . !");
-          System.out.println("*************************************");
+      } else if (option15 == 2) {
+        System.out.println("");
+        System.out.println("*************************************");
+        System.out.println("Thank you . . . !");
+        System.out.println("*************************************");
+      }else{
+        System.out.println("please enter correct number");
       }
 
-    }else if (option12 == 3){
+    } else if (option12 == 3) {
       System.out.println("*************************************");
       System.out.println("");
       System.out.println(" * * * Not found any Cancel appointment * * * ");
@@ -118,34 +131,39 @@ public class patient implements patie {
       Scanner scan15 = new Scanner(System.in);
       int option15 = 0;
       try {
-          option15 = scan15.nextInt();
+        option15 = scan15.nextInt();
       } catch (Exception e) {
-          System.out.println("Please enter number");
+        System.out.println("Please enter number");
+        System.out.println(" ");
       }
-      if(option15 == 1){
+      if (option15 == 1) {
         patientOptionMore();
-      }else if(option15 == 2){
-        
-          System.out.println("");
-          System.out.println("*************************************");
-          System.out.println("Thank you . . . !");
-          System.out.println("*************************************");
+      } else if (option15 == 2) {
+
+        System.out.println("");
+        System.out.println("*************************************");
+        System.out.println("Thank you . . . !");
+        System.out.println("*************************************");
       }
-    }else if (option12 == 4){
+      else{
+        System.out.println("please enter correct number");
+      }
+    } else if (option12 == 4) {
 
       paymentStart paymentStart = new paymentStart();
       paymentStart.paymentStartOption();
 
-    }else if (option12 == 5 ){
+    } else if (option12 == 5) {
 
       System.out.println("");
       System.out.println("*************************************");
       System.out.println("Thank you . . . !");
       System.out.println("*************************************");
 
-    }else{
-
+    } else {
       System.out.println("Please enter correct number");
+      System.out.println("");
+      patientOptionMore();
     }
   }
 }

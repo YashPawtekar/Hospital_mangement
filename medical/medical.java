@@ -1,4 +1,5 @@
 package medical;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
@@ -67,9 +68,11 @@ public class medical implements med {
     }
 
     public void update() {
+          System.out.println("*************************************");
         System.out.println("");
         System.out.println(" . . . Medical Record Update  . . . ");
         System.out.println(" ");
+          System.out.println("*************************************");
         System.out.println(Arrays.toString(medicalRecordDetails[medicalRecordCount]));
         System.out.println(" ");
         System.out.println("");
@@ -77,6 +80,7 @@ public class medical implements med {
         System.out.println("2. Nmuber of box");
         System.out.println("3. Per Pack");
         System.out.println("4. Date");
+        System.out.println("5. Back To Previous Option");
         System.out.println("");
         System.out.println("Please select any one option");
         System.out.println("");
@@ -137,15 +141,22 @@ public class medical implements med {
             System.out.println("");
             comm();
 
-        } else {
+        } else if (option12 == 5) {
+            comm();
+
+        }else {
             System.out.println("Please enter correct number");
+            System.out.println();
+            update();
         }
     }
 
     public void comm() {
+         System.out.println("********************************************");
         System.out.println("");
         System.out.println(" . . . Medical Record information  . . . ");
         System.out.println(" ");
+         System.out.println("********************************************");
         System.out.println(Arrays.toString(medicalRecordDetails[medicalRecordCount]));
         // appointCount++;
         System.out.println("");
@@ -161,6 +172,7 @@ public class medical implements med {
             option11 = scan11.nextInt();
         } catch (Exception e) {
             System.out.println("Please enter number");
+            System.out.println("");
         }
         if (option11 == 1) {
             update();
@@ -170,6 +182,8 @@ public class medical implements med {
             save();
         } else {
             System.out.println("Please enter correct number");
+            System.out.println("");
+            comm() ;
         }
     }
 
@@ -184,9 +198,12 @@ public class medical implements med {
     }
 
     public void delete() {
+          System.out.println("********************************************");
         System.out.println("");
         System.out.println("Are you confirm to delete this information ?");
         System.out.println("");
+          System.out.println("********************************************");
+          System.out.println("");
         System.out.println("1. Yes");
         System.out.println("2. No");
         System.out.println("");
@@ -199,6 +216,7 @@ public class medical implements med {
             option13 = scan13.nextInt();
         } catch (Exception e) {
             System.out.println("Please enter number");
+            System.out.println("");
         }
 
         if (option13 == 1) {
@@ -232,14 +250,17 @@ public class medical implements med {
                 option15 = scan15.nextInt();
             } catch (Exception e) {
                 System.out.println("Please enter number");
+                System.out.println("");
             }
-            if(option15 == 1){
+            if (option15 == 1) {
                 medicalOptionMore();
-            }else if(option15 == 2){
+            } else if (option15 == 2) {
                 System.out.println("");
                 System.out.println("*************************************");
                 System.out.println("Thank you . . . !");
                 System.out.println("*************************************");
+            }else{
+                System.out.println("Please enter correct number");
             }
 
         } else if (option13 == 2) {
@@ -250,13 +271,16 @@ public class medical implements med {
             comm();
         } else {
             System.out.println("Please enter correct number");
+            System.out.println("");
+            delete();
         }
     }
 
     public void save() {
         try {
-            String FileName = medicalRecordDetails[medicalRecordCount][0] + "_" + medicalRecordDetails[medicalRecordCount][1] + "_" + medicalRecordDetails[medicalRecordCount][2];
-            FileWriter writer = new FileWriter("medical/" +FileName);
+            String FileName = medicalRecordDetails[medicalRecordCount][0] + "_"
+                    + medicalRecordDetails[medicalRecordCount][1] + "_" + medicalRecordDetails[medicalRecordCount][2];
+            FileWriter writer = new FileWriter("medical/" + FileName);
             writer.write(" [ ");
             for (String appoi : medicalRecordDetails[medicalRecordCount]) {
                 writer.write(" ' " + appoi + " ' ");
@@ -265,7 +289,7 @@ public class medical implements med {
             writer.close();
             System.out.println(" ");
             System.out.println("New file created successfully.");
-            System.out.println(" "); 
+            System.out.println(" ");
             medicalRecordCount++;
         } catch (IOException e) {
             System.out.println("An error occurred: " + e.getMessage());
@@ -281,6 +305,7 @@ public class medical implements med {
         System.out.println("");
         System.out.println("1. Registration");
         System.out.println("2. Login");
+        System.out.println("3. Exit");
         System.out.println("");
         System.out.println("Please select any option . . .");
 
@@ -290,6 +315,7 @@ public class medical implements med {
             optionAdmin = scan3.nextInt();
         } catch (Exception e) {
             System.out.println("Please enter number" + e.getMessage());
+            System.out.println("");
         }
 
         if (optionAdmin == 1) {
@@ -297,6 +323,11 @@ public class medical implements med {
             registrat.registra("Medical");
         } else if (optionAdmin == 2) {
             login.userLogin("Medical");
+        } else if (optionAdmin == 3) {
+            System.out.println("*************************************");
+            System.out.println("");
+            System.out.println("Thank you . . . !");
+            System.out.println("*************************************");
         } else {
             System.out.println("");
             System.out.println(" * * * Please enter correct number * * * ");
@@ -311,6 +342,7 @@ public class medical implements med {
         System.out.println(" ");
         System.out.println("1. Create Medical Record");
         System.out.println("2. Medical Record Read");
+        System.out.println("3. Exit");
         System.out.println("");
         System.out.println("Please select any one option");
         Scanner scan6 = new Scanner(System.in);
@@ -319,21 +351,32 @@ public class medical implements med {
             option6 = scan6.nextInt();
         } catch (Exception e) {
             System.out.println("Please enter number");
+            System.out.println("");
         }
 
         if (option6 == 1) {
+            System.out.println("********************************************");
             System.out.println("");
             System.out.println(" * * *Create New Medical Record * * *");
             System.out.println("");
+            System.out.println("********************************************");
             add();
         } else if (option6 == 2) {
+            System.out.println("********************************************");
             System.out.println("");
             System.out.println(" * * * Medical Record Details * * *");
             System.out.println("");
+            System.out.println("********************************************");
             read();
             System.out.println("");
+        } else if (option6 == 3) {
+            System.out.println("*************************************");
+            System.out.println("");
+            System.out.println("Thank you . . . !");
+            System.out.println("*************************************");
         } else {
             System.out.println("Please enter correct number");
+            System.out.println("");
             medicalOptionMore();
         }
     }

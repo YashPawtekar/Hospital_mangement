@@ -50,6 +50,7 @@ public class doctorAddc {
         System.out.println("Doctor details . . .");
         System.out.println("");
         System.out.println(Arrays.toString(users[userCount]));
+        System.out.println("");
         System.out.println("*************************************");
         System.out.println("");
         System.out.println("*************************************");
@@ -68,6 +69,7 @@ public class doctorAddc {
             option15 = scan15.nextInt();
         } catch (Exception e) {
             System.out.println("Please enter number");
+            System.out.println("");
         }
         if (option15 == 1) {
              admin admin = new admin();
@@ -77,6 +79,9 @@ public class doctorAddc {
             System.out.println("*************************************");
             System.out.println("Thank you . . . !");
             System.out.println("*************************************");
+        }else{
+            System.out.println("Please enter correct number");
+            System.out.println("");  
         }
     }
 

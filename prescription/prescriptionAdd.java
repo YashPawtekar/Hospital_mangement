@@ -56,8 +56,12 @@ public class prescriptionAdd {
     }
     public void comm(){
         System.out.println("");
+        System.out.println("*************************************");
+        System.out.println("");
         System.out.println(" . . . Prescription Details  . . . ");
         System.out.println(" ");
+        System.out.println("*************************************");
+        System.out.println("");
         System.out.println(Arrays.toString(prescriptionWrite[prescriptionCount]));
         // appointCount++;
         System.out.println("");
@@ -73,6 +77,7 @@ public class prescriptionAdd {
             option11 = scan11.nextInt();
         } catch (Exception e) {
             System.out.println("Please enter number");
+            System.out.println();
         }
         if (option11 == 1) {
             update();
@@ -82,12 +87,17 @@ public class prescriptionAdd {
             save();
         } else {
             System.out.println("Please enter correct number");
+            System.out.println();
+            comm();
         }
     }
     public void update(){
+        System.out.println("*************************************");
         System.out.println("");
         System.out.println(" . . . Prescription Update  . . . ");
         System.out.println(" ");
+        System.out.println("*************************************");
+        System.out.println("");
         System.out.println(Arrays.toString(prescriptionWrite[prescriptionCount]));
         System.out.println(" ");
         System.out.println("");
@@ -95,6 +105,7 @@ public class prescriptionAdd {
         System.out.println("2. Doctor");
         System.out.println("3. Fees");
         System.out.println("4. Medicine");
+        System.out.println("5. Back To Previous Option");
         System.out.println("");
         System.out.println("Please select any one option");
         System.out.println("");
@@ -104,6 +115,7 @@ public class prescriptionAdd {
             option12 = scan12.nextInt();
         } catch (Exception e) {
             System.out.println("Please enter number");
+            System.out.println("");
         }
 
         if (option12 == 1) {
@@ -155,14 +167,23 @@ public class prescriptionAdd {
             System.out.println("");
             comm();
 
-        }else{
-            System.out.println("Please enter correct number");
+        }else if (option12 == 5) {
             comm();
         }
+        else{
+            System.out.println("Please enter correct number");
+            System.out.println("");
+            update();
+        }
     }
+
     public void delete(){
+        System.out.println("*************************************");
+
         System.out.println("");
         System.out.println("Are you confirm to delete this information ?");
+        System.out.println("");
+        System.out.println("*************************************");
         System.out.println("");
         System.out.println("1. Yes");
         System.out.println("2. No");
@@ -176,11 +197,14 @@ public class prescriptionAdd {
             option13 = scan13.nextInt();
         } catch (Exception e) {
             System.out.println("Please enter number");
+            System.out.println("");
         }
 
         if (option13 == 1) {
+            System.out.println("*************************************");
             System.out.println("");
             System.out.println("Thanks for your conformation . . . !");
+            System.out.println("");
             System.out.println("*************************************");
             System.out.println("");
             String apponitId = null;
@@ -209,6 +233,7 @@ public class prescriptionAdd {
                 option15 = scan15.nextInt();
             } catch (Exception e) {
                 System.out.println("Please enter number");
+                System.out.println("");
             }
             if(option15 == 1){
                 doctor doctorC = new doctor();
@@ -219,6 +244,9 @@ public class prescriptionAdd {
                 System.out.println("*************************************");
                 System.out.println("Thank you . . . !");
                 System.out.println("*************************************");
+            }else{
+                System.out.println("Please enter correct number");
+                System.out.println("");
             }
 
         } else if (option13 == 2) {
@@ -228,6 +256,8 @@ public class prescriptionAdd {
             comm();
         } else {
             System.out.println("Please enter correct number");
+            System.out.println("");
+            delete();
         }
     }
     public void save(){
@@ -250,9 +280,12 @@ public class prescriptionAdd {
     }
 
     public void prescriptionAddC(){
+        System.out.println("*************************************");
         System.out.println(" ");
         System.out.println(" . . . Write Prescription  . . . ");
         System.out.println(" ");
+        System.out.println("*************************************");
+        System.out.println("");
         add();
     }
 }

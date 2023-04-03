@@ -39,7 +39,8 @@ class startApp {
         System.out.println("");
         System.out.println(" * * * Welcome to My Hospital * * * ");
         System.out.println("");
-        System.out.println("*************************************"); 
+        System.out.println("*************************************");
+        System.out.println(""); 
         adminC();
         doctorC();
         patientC();
@@ -62,50 +63,73 @@ class startApp {
             option = scan.nextInt();
         } catch (InputMismatchException e) {
             System.out.println(" ");
-            System.out.println("Please enter any option");
+            System.out.println("Please enter number");
             System.out.println(" ");
+            start();
         } catch (Exception e) {
             System.out.println(" ");
             System.out.println("Please invaild option");
             System.out.println(" ");
+            start();
         } finally {
             // scan.close();
         }
        
         if (option == 1) {
             System.out.println("");
+            System.out.println("*************************************");
+            System.out.println("");
             System.out.println("Welcome to Admin Panel");
+            System.out.println();
             System.out.println("*************************************"); 
             admin.adminOption();
 
         } else if (option == 2) {
             System.out.println("");
+            System.out.println("*************************************");
+            System.out.println("");
             System.out.println("Welcome to Doctor Panel");
+            System.out.println();
             System.out.println("*************************************"); 
             doctor.doctorOption();
         } else if (option == 3) {
             System.out.println("");
+            System.out.println("*************************************");
+            System.out.println("");
             System.out.println("Welcome to Patient Panel");
+            System.out.println();
             System.out.println("*************************************"); 
             patient.patientOption();
         }else if (option == 4) {
             System.out.println("");
+            System.out.println("*************************************");
+            System.out.println("");
             System.out.println("Welcome to Medical Record Management");
+            System.out.println();
             System.out.println("*************************************"); 
             medical.medicalOption();
         }else if (option == 5) {
             System.out.println("");
+            System.out.println("*************************************");
+            System.out.println("");
             System.out.println("Welcome to Appointment Management");
+            System.out.println();
             System.out.println("*************************************");
             appointmentMangement.appointMangementOption();
         }else if (option == 6) {
             System.out.println("");
+            System.out.println("*************************************");
+            System.out.println("");
             System.out.println("Welcome to Bill Generater");
+            System.out.println();
             System.out.println("*************************************");
             billGenerater.billGenetateroption();
         }else if (option == 7) {
             System.out.println("");
+            System.out.println("*************************************");
+            System.out.println("");
             System.out.println("close");
+            System.out.println();
             System.out.println("*************************************"); 
         }
     }

@@ -14,7 +14,7 @@ interface log {
 }
 
 public class login implements log {
-
+  logingData logingData =  new logingData();
   public void loginData(String Email, String password, String sectionType) {
    
     if(sectionType == "Admin"){
@@ -193,15 +193,26 @@ public class login implements log {
   public void userLogin(String section) {
     // if(section == "Admin") {
       System.out.println("");
+      System.out.println("*************************************");
+      System.out.println("Login  . . . !");
+      System.out.println("*************************************");
+      System.out.println("");
       System.out.println("Please enter email");
       Scanner scan4 = new Scanner(System.in);
+      
       String email = null;
       String password = null;
+
       try {
         email = scan4.next();
       } catch (Exception e) {
         System.out.println("Some problem" + e);
       }
+
+      logingData.setEmailId(email);
+
+      
+      System.out.println("");
       System.out.println("Please enter password");
       Scanner scan5 = new Scanner(System.in);
       try {
@@ -209,8 +220,10 @@ public class login implements log {
       } catch (Exception e) {
         System.out.println("Some problem" + e);
       }
+      logingData.setPassword(password);
+      logingData.setSection(section);
 
-      loginData(email, password, section);
+      loginData(logingData.getEmailId(), logingData.getPassword(), logingData.getSection());
   }
 
 }
