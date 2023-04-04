@@ -1,4 +1,4 @@
-# Hospital_mangement
+# Hospital Mangement (Core Java)
 This is a Java-based Hospital Management System that allows hospital staff to manage various aspects of a hospital such as patients, doctors, appointments, and medical histories.This project 4000+ lines of code.
 
 # Features

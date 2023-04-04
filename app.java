@@ -1,7 +1,7 @@
 import admin.*;
-import doctor.doctor;
-import patient.patient;
-import medical.medical;
+import doctor.*;
+import patient.*;
+import medical.*;
 import appointment.*;
 import java.util.*;
 import bill.*;
